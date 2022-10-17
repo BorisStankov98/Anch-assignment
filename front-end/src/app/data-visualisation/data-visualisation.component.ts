@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-visualisation.component.scss']
 })
 export class DataVisualisationComponent implements OnInit {
-
+	echartsInstance: any;
   constructor() { }
 
   ngOnInit(): void {

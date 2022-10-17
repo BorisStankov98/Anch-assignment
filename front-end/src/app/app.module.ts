@@ -12,6 +12,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { DataVisualisationModule } from './data-visualisation/data-visualisation.module';
+import { NgxEchartsModule } from 'ngx-echarts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +29,11 @@ import { DataVisualisationModule } from './data-visualisation/data-visualisation
     MatToolbarModule,
     MatIconModule,
     BrowserAnimationsModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'), // Import all modules from echarts:
+    })
+] ,
   providers: [],
   bootstrap: [AppComponent]
 })
