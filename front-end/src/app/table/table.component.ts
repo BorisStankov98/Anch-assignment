@@ -1,8 +1,7 @@
-import {  Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import {  map, Observable, of, tap,combineLatestWith } from 'rxjs';
+import { map, Observable, of, tap, combineLatestWith } from 'rxjs';
 import { HttpService } from '../services/http.service';
-
 
 @Component({
   selector: 'app-table',
@@ -43,7 +42,7 @@ export class TableComponent implements OnInit {
       .pipe(
         map((item: any[]) => {
           item.forEach((item) => {
-            if (!(item.Role in this.roles)) this.roles[item.Role] = 1;
+            if (!(item.Role in this.roles)) this.roles[item.Role] = 0;
             if (item.Role in this.roles) {
               this.roles[item.Role] += 1;
             }
@@ -58,34 +57,36 @@ export class TableComponent implements OnInit {
       )
       .subscribe();
     this.filterForm.valueChanges.subscribe((form) => {
-      this.roles = {}
+      this.roles = {};
       this.data$ = dataSubscribtion.pipe(
         combineLatestWith(of(form)),
-        map(
-          ([users,form]) => {
-            const {nameOrEmail, organization, job_title, role} = form;
+        map(([users, form]) => {
+          const { nameOrEmail, organization, job_title, role } = form;
+          console.log(users);
 
-            return users.filter(
-              (user:any) => {
-                return (user["First Name"] === nameOrEmail  || nameOrEmail=== "") && (user["Organisation Unit"] === organization || organization===null ) && (user["Job title"] === job_title ||job_title===null) && (user["Role"] === role || role === null)
-              }
-            )
-          }
-        )
-      )
-      this.data$
-      .pipe(
-        map((item: any[]) => {
-          item.forEach((item) => {
-            if (!(item.Role in this.roles)) this.roles[item.Role] = 0;
-            if (item.Role in this.roles) {
-              this.roles[item.Role] += 1;
-            }
+          return users.filter((user: any) => {
+            return (
+              (user["First Name"].includes(nameOrEmail) || user['Last name'].includes(nameOrEmail) || user['Email'].includes(nameOrEmail) || nameOrEmail === '') &&
+              (user['Organisation Unit'] === organization ||
+                organization === null) &&
+              (user['Job title'] === job_title || job_title === null) &&
+              (user['Role'] === role || role === null)
+            );
           });
         })
-      )
-      .subscribe();
-
+      );
+      this.data$
+        .pipe(
+          map((item: any[]) => {
+            item.forEach((item) => {
+              if (!(item.Role in this.roles)) this.roles[item.Role] = 0;
+              if (item.Role in this.roles) {
+                this.roles[item.Role] += 1;
+              }
+            });
+          })
+        )
+        .subscribe();
     });
   }
   filterForm = this.formBuilder.group({

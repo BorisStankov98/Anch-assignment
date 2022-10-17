@@ -1,4 +1,4 @@
-.page-wrapper{
+.page-wrapper {
   width: 80%;
   margin: 0 auto;
 }
@@ -7,45 +7,46 @@
   display: none;
 }
 
-.filters{
+.filters {
   display: flex;
-  gap:15px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
-th{
+th {
   color: black;
-  background-color: #EFEFEF;
+  background-color: #efefef;
 }
-.table-wrapper{
+.table-wrapper {
   background-color: transparent;
   height: 65vh;
   overflow: auto;
 }
-td, th {
+td,
+th {
   vertical-align: middle !important;
 }
-td{
-  background-color: #FCFCFC !important;
+td {
+  background-color: #fcfcfc !important;
 }
-.roles{
+.roles {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
-.role{
+.role {
   list-style: none;
   text-align: center;
 }
-.initials{
+.initials {
   display: grid;
   place-items: center;
   width: 32px;
   height: 32px;
-  border:1px solid black;
+  border: 1px solid black;
   border-radius: 50%;
 }
-.user-data{
+.user-data {
   display: flex;
   gap: 10px;
   align-items: center;

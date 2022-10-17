@@ -3,17 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-		path: 'table',
-		loadChildren: () => import('./table/table.module').then((value) => value.TableModule),
-	},
+    path: 'table',
+    loadChildren: () =>
+      import('./table/table.module').then((value) => value.TableModule),
+  },
   {
-		path: 'data-visualisation',
-		loadChildren: () => import('./data-visualisation/data-visualisation.module').then((value) => value.DataVisualisationModule),
-	}
+    path: 'data-visualisation',
+    loadChildren: () =>
+      import('./data-visualisation/data-visualisation.module').then(
+        (value) => value.DataVisualisationModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.scss']
+  styleUrls: ['./bar-chart.component.scss'],
 })
 export class BarChartComponent implements OnInit {
   options: any;
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     const xAxisData = [];
@@ -39,17 +39,17 @@ export class BarChartComponent implements OnInit {
           name: 'bar',
           type: 'bar',
           data: data1,
-          animationDelay: (idx:any) => idx * 10,
+          animationDelay: (idx: any) => idx * 10,
         },
         {
           name: 'bar2',
           type: 'bar',
           data: data2,
-          animationDelay: (idx:any) => idx * 10 + 100,
+          animationDelay: (idx: any) => idx * 10 + 100,
         },
       ],
       animationEasing: 'elasticOut',
-      animationDelayUpdate: (idx:any) => idx * 5,
+      animationDelayUpdate: (idx: any) => idx * 5,
     };
   }
 }

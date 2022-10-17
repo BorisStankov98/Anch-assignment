@@ -10,7 +10,6 @@ import { LineChartComponent } from './line-chart/line-chart.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 @NgModule({
-
   declarations: [
     DataVisualisationComponent,
     BarChartComponent,
@@ -24,15 +23,15 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     RouterModule.forChild([
       {
         path: '',
-        component:DataVisualisationComponent ,
-    },
+        component: DataVisualisationComponent,
+      },
     ]),
     NgxEchartsModule.forRoot({
-			echarts: () => import('echarts'), // Import all modules from echarts:
-		}),
-	],
+      echarts: () => import('echarts'), // Import all modules from echarts:
+    }),
+  ],
 
   providers: [],
-  bootstrap: []
+  bootstrap: [],
 })
-export class DataVisualisationModule { }
+export class DataVisualisationModule {}
