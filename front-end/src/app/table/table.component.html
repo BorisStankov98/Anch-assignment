@@ -1,0 +1,86 @@
+<div class="page-wrapper">
+<h2>Contacts</h2>
+<div>
+  <div class="roles">
+    <div *ngFor="let role of roles | keyvalue"
+    class="role"
+    >
+    {{role.key}}
+     <br>
+      {{role.value}}
+  </div>
+  </div>
+
+</div>
+<form  [formGroup]="filterForm">
+<mat-form-field class="example-full-width" appearance="outline">
+  <mat-label>Name or Email Address</mat-label>
+  <input matInput formControlName="nameOrEmail"  />
+    <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+<div class="filters">
+  <mat-form-field appearance="outline">
+    <mat-label>Organization</mat-label>
+    <mat-select formControlName="organization" >
+      <mat-option *ngFor="let organization of organizations" [value]="organization">
+        {{organization}}
+      </mat-option>
+    </mat-select>
+    <mat-icon matSuffix class="expand-more">expand_more </mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Job Title</mat-label>
+    <mat-select formControlName="job_title" >
+      <mat-option *ngFor="let jobTitle of jobTitle" [value]="jobTitle">
+        {{jobTitle}}
+      </mat-option>
+    </mat-select>
+    <mat-icon matSuffix class="expand-more">expand_more </mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="role" >
+      <mat-option>All</mat-option>
+      <mat-option *ngFor="let role of rolesForFilter | keyvalue" [value]="role.key">
+        {{role.key}}
+      </mat-option>
+    </mat-select>
+    <mat-icon matSuffix class="expand-more">expand_more </mat-icon>
+  </mat-form-field>
+</div>
+</form>
+<div class="table-wrapper">
+  <table #table mat-table [dataSource]="data$ | async" class="table">
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef>User</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="user-data">
+        <div class="initials">
+          {{ element["First Name"][0]}} {{ element["Last name"][0]}}
+        </div>
+        {{ element["First Name"]}} {{ element["Last name"]}}
+         <br>
+         {{ element["Email"]}}
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="job_title">
+      <th mat-header-cell *matHeaderCellDef>Job Title</th>
+      <td mat-cell *matCellDef="let element">{{ element["Job title"]}}</td>
+    </ng-container>
+    <ng-container matColumnDef="organisation_unit">
+      <th mat-header-cell *matHeaderCellDef>Organization</th>
+      <td mat-cell *matCellDef="let element">{{ element["Organisation Unit"] }}</td>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef>Role</th>
+      <td mat-cell *matCellDef="let element">{{ element["Role"] }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+</div>
+</div>

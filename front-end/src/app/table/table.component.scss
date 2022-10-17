@@ -1,0 +1,52 @@
+.page-wrapper{
+  width: 80%;
+  margin: 0 auto;
+}
+
+::ng-deep.mat-select-arrow {
+  display: none;
+}
+
+.filters{
+  display: flex;
+  gap:15px;
+  flex-wrap: wrap;
+}
+
+th{
+  color: black;
+  background-color: #EFEFEF;
+}
+.table-wrapper{
+  background-color: transparent;
+  height: 65vh;
+  overflow: auto;
+}
+td, th {
+  vertical-align: middle !important;
+}
+td{
+  background-color: #FCFCFC !important;
+}
+.roles{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.role{
+  list-style: none;
+  text-align: center;
+}
+.initials{
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border:1px solid black;
+  border-radius: 50%;
+}
+.user-data{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
