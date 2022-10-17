@@ -41,5 +41,12 @@ Absolutely not I did as much as I could in the given time-frame there are things
 
 I exported the database from ADS to json and basiacly hard-coded as the response from the API. 
 
+## Things to keep in mind !!!!
+
+***Clean Code***
+Is a concept that was not used in this project for the simple reason I had to rush a lot and make things work
+
+***No Attention to Deatail***
+I paid attention to as much details as I could and focused on implementing as much "Functionality" as possible rather than going for "Pixel Perfection"
 # Finaly a big thank you for the time and consideration
 
