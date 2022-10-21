@@ -13,7 +13,7 @@ To run the project you need to first install **Angular CLI** and **Nest CLI**
 angular cli : npm install -g @angular/cli
 nest cli :  npm install -g @nestjs/cli
 
-After that you need to cd back-end and install all the node modules by typing npm install 
+After that you need to cd back-end/api and install all the node modules by typing npm install 
 
 Once you have the back-end modules you can start the backend by typing: 
 npm run start:dev
